@@ -7,7 +7,7 @@ import 'tailwindcss/dist/tailwind.css'
 Axios.defaults.baseURL = process.env.VUE_APP_BACKEND_URL;
 Vue.prototype.$axios = Axios;
 Vue.config.productionTip = false
-Vue.prototype.$defaultPath = 'http://localhost:8000/api/'
+Vue.prototype.$defaultURL = 'http://localhost:8000/api'
 
 new Vue({
   router,
