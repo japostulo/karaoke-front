@@ -7,13 +7,8 @@ const routes: Array<RouteConfig> = [
   {
     path: '/',
     name: 'Home',
-    component: () => import(/*webpacklChunName: 'Home'*/ '../views/Home.vue')
+    component: () => import(/*webpacklChunkName: 'Video'*/ '../components/Video.vue')
   },
-  {
-    path: '/about',
-    name: 'About',
-    component: () => import(/* webpackChunkName: "about" */ '../views/About.vue')
-  }
 ]
 
 const router = new VueRouter({
