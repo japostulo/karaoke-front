@@ -1,6 +1,6 @@
 <template>
-    <div>
-        <video :src="link" autoplay="true" controls="true">
+    <div class="relative">
+        <video :src="link" class="h-screen w-screen" style="object-fit:fill" autoplay="true" controls="true">
 
         </video>
     </div>
@@ -8,11 +8,27 @@
 
 <script>
 export default {
+    props:[
+        'id',
+        'queue',
+        'mode',
+    ],  
     data(){
         return {
-            link:`http://localhost:8000/api/video/01`,
+            link: "",
         }
     },
+    methods:{
+        modeValidate() {
+            let id 
+            this.mode == 'music' ? id = this.id : id = '00000'
+            this.link = `${this.$defaultURL}/video/${this.mode}/${id}`
+            console.log(this.link)
+        }
+    },
+    created(){
+        this.modeValidate()
+    },    
 }
 </script>
 
