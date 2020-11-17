@@ -2,11 +2,11 @@
     <div>
         <!-- <video-c :id="id" :mode="'music'"/> -->
         
-        <div id="home" @keyup.p="insertCoin" class="top-0 absolute outline-none" tabindex="0">
+        <div v-keynumber="setId" v-focus @keyup.p="insertCoin" class="top-0 absolute outline-none" tabindex="0">
             <div class="w-screen flex justify-center items-center bg-blue-200" style="height:90vh;">
                 <div class="text-center text-black">
                     <div class="text-6xl sm:text-6xl md:text-7xl lg:text-8xl xl:text-9xl stroke-3">
-                        {{id}}
+                        {{id.padStart(5,0)}}
                     </div>
                     <div class="text-xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl stroke-2">
                         {{name}}
@@ -22,6 +22,7 @@
 </template>
 
 <script>
+let numero="";
 import videoC from '../components/Video'
 
 export default {
@@ -30,19 +31,28 @@ export default {
     },
     data() {
         return {
-            id:'00000',
+            id:'',
             name:'Digite uma música',
             coin:0,
             err:'',
         }
     },
-    mounted(){
-        document.querySelector("#home").focus();
-    },
     methods:{
+        setId(key){
+            this.id += key
+        },
         insertCoin(){
-            console.log("inseriu coin")
             this.coin++;
+        },
+        max(value, max){
+            if(value.length > max){
+                value = ""
+            } 
+        }
+    },
+    watch:{
+        id(currentValue){
+            this.id.max(currentValue, 5)
         }
     }
 }
