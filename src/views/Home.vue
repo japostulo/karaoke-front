@@ -2,7 +2,7 @@
     <div>
         <!-- <video-c :id="id" :mode="'music'"/> -->
         
-        <div class="top-0 absolute ">
+        <div id="home" @keyup.p="insertCoin" class="top-0 absolute outline-none" tabindex="0">
             <div class="w-screen flex justify-center items-center bg-blue-200" style="height:90vh;">
                 <div class="text-center text-black">
                     <div class="text-6xl sm:text-6xl md:text-7xl lg:text-8xl xl:text-9xl stroke-3">
@@ -36,6 +36,15 @@ export default {
             err:'',
         }
     },
+    mounted(){
+        document.querySelector("#home").focus();
+    },
+    methods:{
+        insertCoin(){
+            console.log("inseriu coin")
+            this.coin++;
+        }
+    }
 }
 </script>
 
