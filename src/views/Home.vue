@@ -5,7 +5,7 @@
         <div class="top-0 absolute">
             <div class="w-screen flex justify-center items-center " style="height:95vh">
                 <div class="text-center text-white">
-                    <div class="text-6xl">
+                    <div class="text-7xl">
                         {{id}}
                     </div>
                     <div class="text-5xl">
