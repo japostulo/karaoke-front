@@ -1,9 +1,9 @@
 <template>
     <div>
-        <!-- <video-c :id="id" :mode="'music'"/> -->
+        <video-c :id="music.padStart(5,0)" :mode="'music'"/>
         
-        <div v-keynumber="setId" v-focus @keyup.p="insertCoin" class="top-0 absolute outline-none" tabindex="0">
-            <div class="w-screen flex justify-center items-center bg-blue-200" style="height:90vh;">
+        <div v-keynumber.max5="setId" v-focus @keyup.p="insertCoin" @keyup.backspace="remove" @keyup.enter="play" class="top-0 absolute outline-none" tabindex="0">
+            <div class="w-screen flex justify-center items-center" style="height:90vh;">
                 <div class="text-center text-black">
                     <div class="text-6xl sm:text-6xl md:text-7xl lg:text-8xl xl:text-9xl stroke-3">
                         {{id.padStart(5,0)}}
@@ -14,7 +14,7 @@
                 </div>
             </div>
 
-            <div class="h-full text-xl sm:text-xl md:text-3xl xl:text-5xl text-black flex justify-end items-end bg-red-200 stroke-1" style="height:10vh">
+            <div class="h-full text-xl sm:text-xl md:text-3xl xl:text-5xl text-black flex justify-end items-end stroke-1" style="height:10vh">
                 Coin: {{coin}}
             </div>
         </div>
@@ -35,6 +35,7 @@ export default {
             name:'Digite uma música',
             coin:0,
             err:'',
+            music: '',
         }
     },
     methods:{
@@ -48,12 +49,18 @@ export default {
             if(value.length > max){
                 value = ""
             } 
+        },
+        play(){
+            // antes validar se tem no banco de dados e setar em uma variavel diferente passando o mode
+            this.music = this.id
+        },
+
+        remove(){
+            this.id = this.id.substring(0,this.id.length-1)
         }
     },
     watch:{
-        id(currentValue){
-            this.id.max(currentValue, 5)
-        }
+
     }
 }
 </script>
