@@ -21,7 +21,6 @@ export default {
     },
     methods:{
         modeValidate() {
-            
             let id 
             this.mode == 'music' ? id = this.id : id = '00000'
             this.play(id);
@@ -29,10 +28,15 @@ export default {
         play(id) {
             this.link = `${this.$defaultURL}/videos/${this.mode}/${id}`
 
-            document.getElementById('video').addEventListener('ended', () => {
-                alert('Terminou')
-            }, false)
+            // document.getElementById('video').addEventListener('ended', () => {
+            //     alert('Terminou')
+            // }, false)
 
+        }
+    },
+    watch:{
+        id(){
+            this.modeValidate()
         }
     },
     created(){
