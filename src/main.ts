@@ -16,16 +16,15 @@ Vue.directive('keynumber', {
     let modifiers = Object.keys(binding.modifiers)
     modifiers.forEach(modifier => {
       if(modifier.substring(0,3) == "max"){
-      max = parseInt(modifier.substring(3))
+        max = parseInt(modifier.substring(3))
       }
     })
 
     el.addEventListener('keyup', (keyboard) => {
       if(Number.isInteger(parseInt(keyboard.key))){
-        console.log(max)
-        // if( > max){
-        //   console.log("resetou a porra toda")
-        // }
+        if(vnode.context.id.length >= max){
+          vnode.context.id = ''
+        }
         binding.value(keyboard.key)
       }
     })
