@@ -1,6 +1,6 @@
 <template>
     <div class="relative">
-        <video :src="link" model="video" id="video" class="h-screen w-screen" style="object-fit:fill" autoplay="true" muted="true" controls="true">
+        <video :src="link" v-start v-finish model="video" id="video" class="h-screen w-screen" style="object-fit:fill" autoplay="true" muted="true" controls="true">
 
         </video>
     </div>
