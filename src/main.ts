@@ -31,6 +31,18 @@ Vue.directive('keynumber', {
   }
 })
 
+Vue.directive('start', (el) => {
+  console.log('chamou a start')
+  console.log('Está tocando')
+})
+
+Vue.directive('finish', (el) => {
+  console.log('chamou a finish')
+  el.addEventListener('ended', () => {
+    console.log('Terminou')
+  })
+})
+
 Vue.directive('focus', {
   inserted: function (el) {
     el.focus()
