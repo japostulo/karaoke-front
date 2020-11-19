@@ -6,8 +6,7 @@ Vue.use(VueRouter)
 const routes: Array<RouteConfig> = [
   {
     path: '/',
-    name: 'Video',
-    component: () => import(/*webpackChunkName: 'Video'*/ '../components/Video.vue')
+    redirect: 'Home',
   },
   {
     path: '/home',
