@@ -1,9 +1,15 @@
 <template>
-    <div class="relative">
-        <video :src="link" model="video" id="video" class="h-screen w-screen" style="object-fit:fill" autoplay="true" muted="true" controls="true">
-
-        </video>
-    </div>
+  <div class="relative">
+    <video
+      :src="link"
+      model="video"
+      id="video"
+      class="h-screen w-screen"
+      style="object-fit: fill"
+      autoplay="true"
+      muted="true"
+    ></video>
+  </div>
 </template>
 
 <script>
@@ -46,5 +52,4 @@ export default {
 </script>
 
 <style>
-
 </style>
