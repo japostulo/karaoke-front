@@ -3,6 +3,7 @@ import App from './App.vue'
 import router from './router'
 import Axios from 'axios'
 import './assets/styles/tailwind.css'
+import vuetify from './plugins/vuetify';
 
 Axios.defaults.baseURL = process.env.VUE_APP_BACKEND_URL;
 Vue.prototype.$axios = Axios;
@@ -51,5 +52,6 @@ Vue.directive('focus', {
 
 new Vue({
   router,
+  vuetify,
   render: h => h(App)
 }).$mount('#app')
