@@ -1,7 +1,6 @@
 <template>
   <div>
     <!-- <video-c :id="music.padStart(5, 0)" :mode="'music'" /> -->
-
     <div
       v-keynumber.max5="setId"
       v-focus
@@ -11,7 +10,8 @@
       class="top-0 absolute w-full outline-none"
       tabindex="0"
     >
-      <div class="h-screen grid grid-rows-4 grid-flow-col">
+      <Card :coin="coin" :id="id" :name="name" />
+      <!-- <div class="h-screen grid grid-rows-4 grid-flow-col">
         <div
           class="row-span-2 flex justify-center items-end text-6xl sm:text-6xl md:text-7xl lg:text-8xl xl:text-9xl stroke-3 smh:bg-blue-500"
         >
@@ -27,7 +27,7 @@
         >
           Coin: {{ coin }}
         </div>
-      </div>
+      </div> -->
     </div>
   </div>
 </template>
@@ -35,10 +35,11 @@
 <script>
 let numero="";
 import videoC from '../components/Video'
-
+import Card from '../components/Card';
 export default {
     components:{
         videoC,
+        Card,
     },
     data() {
         return {
