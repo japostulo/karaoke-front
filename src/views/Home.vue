@@ -1,24 +1,69 @@
 <template>
-    <div>
-        <video-c :id="music.padStart(5,0)" :mode="'music'"/>
-        
-        <div v-keynumber.max5="setId" v-focus @keyup.p="insertCoin" @keyup.backspace="remove" @keyup.enter="play" class="top-0 absolute outline-none" tabindex="0">
-            <div class="w-screen flex justify-center items-center" style="height:90vh;">
-                <div class="text-center text-black">
-                    <div class="text-6xl sm:text-6xl md:text-7xl lg:text-8xl xl:text-9xl stroke-3">
-                        {{id.padStart(5,0)}}
-                    </div>
-                    <div class="text-xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl stroke-2">
-                        {{name}}
-                    </div>
-                </div>
-            </div>
+  <div>
+    <!-- <video-c :id="music.padStart(5, 0)" :mode="'music'" /> -->
 
-            <div class="h-full text-xl sm:text-xl md:text-3xl xl:text-5xl text-black flex justify-end items-end stroke-1" style="height:10vh">
-                Coin: {{coin}}
-            </div>
+    <!-- <div
+      v-keynumber.max8="setId"
+      v-focus
+      @keyup.p="insertCoin"
+      @keyup.q="remove"
+      @keyup.enter="play"
+      class="top-0 absolute outline-none"
+      tabindex="0"
+    >
+      <div
+        class="w-screen flex justify-center items-center bg-red-600"
+        style="height: 90vh"
+      >
+        <div class="text-center text-black bg-red-200">
+          <div
+            class="text-6xl sm:text-6xl md:text-7xl lg:text-8xl xl:text-9xl stroke-3"
+          >
+            {{ id.padStart(5, 0) }}
+          </div>
+          <div
+            class="text-xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl stroke-2"
+          >
+            {{ name }}
+          </div>
         </div>
+      </div>
+
+      <div
+        class="h-full text-xl sm:text-xl md:text-3xl xl:text-5xl text-black flex justify-end items-end stroke-1 bg-blue-200"
+        style="height: 10vh"
+      >
+        Coin: {{ coin }}
+      </div> -->
+
+    <div
+      v-keynumber.max5="setId"
+      v-focus
+      @keyup.p="insertCoin"
+      @keyup.q="remove"
+      @keyup.enter="play"
+      class="top-0 outline-none"
+      tabindex="0"
+    >
+      <div class="h-screen grid grid-rows-4 grid-flow-col bg-blue-200">
+        <div
+          class="bg-red-200 row-span-2 flex justify-center items-end text-6xl sm:text-6xl md:text-7xl lg:text-8xl xl:text-9xl stroke-3 smh:bg-blue-500"
+        >
+          {{ id.padStart(5, 0) }}
+        </div>
+        <div
+          class="bg-green-200 flex justify-center text-xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl stroke-2"
+        >
+          {{ name }}
+        </div>
+        <div
+          class="bg-purple-200 flex justify-end items-end text-xl sm:text-xl md:text-3xl xl:text-5xl text-black stroke-1"
+        >
+          Coin: {{ coin }}
+        </div>
+      </div>
     </div>
+  </div>
 </template>
 
 <script>
@@ -67,15 +112,17 @@ export default {
 
 <style>
 .stroke-1 {
-    color:orange;text-shadow:0.18vw 0.18vw black
+  color: orange;
+  text-shadow: 0.18vw 0.18vw black;
 }
 
 .stroke-2 {
-    color:orange;text-shadow:0.20vw 0.20vw black
+  color: orange;
+  text-shadow: 0.2vw 0.2vw black;
 }
 
 .stroke-3 {
-    color:white;text-shadow: 0.50vw 0.50vw black;
+  color: white;
+  text-shadow: 0.5vw 0.5vw black;
 }
-
 </style>
