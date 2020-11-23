@@ -1,6 +1,6 @@
 <template>
   <div>
-    <!-- <video-c :id="music.padStart(5, 0)" :mode="'music'" /> -->
+    <video-c :id="midia.padStart(5, 0)" :mode="'music'" />
     <div
       v-keynumber.max5="setId"
       v-focus
@@ -11,7 +11,7 @@
       tabindex="0"
     >
       <Card :coin="coin" :id="id" :name="name" />
-      <!-- <div class="h-screen grid grid-rows-4 grid-flow-col">
+      <div class="h-screen grid grid-rows-4 grid-flow-col">
         <div
           class="row-span-2 flex justify-center items-end text-6xl sm:text-6xl md:text-7xl lg:text-8xl xl:text-9xl stroke-3 smh:bg-blue-500"
         >
@@ -27,7 +27,7 @@
         >
           Coin: {{ coin }}
         </div>
-      </div> -->
+      </div>
     </div>
   </div>
 </template>
@@ -47,7 +47,7 @@ export default {
             name:'Digite uma música',
             coin:0,
             err:'',
-            music: '',
+            midia: '',
         }
     },
     methods:{
@@ -64,11 +64,17 @@ export default {
         },
         play(){
             // antes validar se tem no banco de dados e setar em uma variavel diferente passando o mode
-            this.music = this.id
+            this.midia = this.id
         },
 
         remove(){
             this.id = this.id.substring(0,this.id.length-1)
+        },
+        clear(){
+            this.id=''
+            this.name='Digite uma música'
+            this.coin=0
+            this.midia= ''
         }
     },
     watch:{
